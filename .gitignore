@@ -1,0 +1,4 @@
+**/.kitchen/
+**/.terraform/
+**/terraform.tfstate.d/
+Makefile
