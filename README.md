@@ -39,8 +39,10 @@ Or just
 make test-modules
 ```
 ## Links
+* https://github.com/newcontext-oss/kitchen-terraform
 * https://docs.chef.io/kitchen/
 * https://github.com/test-kitchen/test-kitchen
 * https://hub.docker.com/r/alpine/bundle-terraform-awspec
 * https://github.com/alpine-docker/bundle-terraform-awspec
 * https://github.com/k1LoW/awspec
+* https://rspec.info/
