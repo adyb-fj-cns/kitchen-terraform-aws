@@ -34,6 +34,10 @@ adybfjcns/bundle-terraform-awspec \
 bash -c 'bundle install; bundle exec kitchen test'
 ```
 
+Or just
+```
+make test-modules
+```
 ## Links
 * https://docs.chef.io/kitchen/
 * https://github.com/test-kitchen/test-kitchen
