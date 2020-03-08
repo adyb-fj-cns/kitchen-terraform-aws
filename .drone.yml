@@ -1,0 +1,31 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: variables
+  image: alpine
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+    AWS_DEFAULT_REGION:
+      from_secret: AWS_DEFAULT_REGION      
+  commands:
+  - echo "AWS_ACCESS_KEY_ID=$${AWS_ACCESS_KEY_ID}"
+  - echo "AWS_SECRET_ACCESS_KEY=$${AWS_SECRET_ACCESS_KEY}"
+  - echo "AWS_DEFAULT_REGION=$${AWS_DEFAULT_REGION}"  
+
+- name: test
+  image: adybfjcns/bundle-terraform-awspec
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+    AWS_DEFAULT_REGION:
+      from_secret: AWS_DEFAULT_REGION  
+  commands:
+  - bundle install
+  - bundle exec kitchen test
